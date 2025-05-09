@@ -1,0 +1,36 @@
+PS C:\Users\himal\Desktop\masala-tea-website> cd src
+PS C:\Users\himal\Desktop\masala-tea-website\src> dir
+
+
+    Directory: C:\Users\himal\Desktop\masala-tea-website\src
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        05/09/2025   2:10 PM                components
+-a----        05/09/2025   2:11 PM             95 App.css
+-a----        05/09/2025   2:11 PM            619 App.js
+-a----        05/09/2025   2:02 PM            246 App.test.js
+-a----        05/09/2025   2:05 PM            416 index.css
+-a----        05/09/2025   2:02 PM            362 reportWebVitals.js
+-a----        05/09/2025   2:02 PM            241 setupTests.js
+
+
+PS C:\Users\himal\Desktop\masala-tea-website\src> cd components
+PS C:\Users\himal\Desktop\masala-tea-website\src\components> dir
+
+
+    Directory: C:\Users\himal\Desktop\masala-tea-website\src\components
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        05/09/2025   2:08 PM                AboutProduct
+d-----        05/09/2025   2:09 PM                Features
+d-----        05/09/2025   2:10 PM                Footer
+d-----        05/09/2025   2:06 PM                Header
+d-----        05/09/2025   2:07 PM                Hero
+d-----        05/09/2025   2:10 PM                Testimonials
+
+
+PS C:\Users\himal\Desktop\masala-tea-website\src\components>   

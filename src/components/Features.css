@@ -1,0 +1,55 @@
+/* Features.css */
+.features {
+  padding: 5rem 5%;
+  background-color: var(--light-gray);
+  text-align: center;
+}
+
+.features .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--dark-brown);
+}
+
+.features h2 span {
+  color: var(--accent-orange);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--accent-orange);
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: #666;
+}
