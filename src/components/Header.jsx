@@ -4,11 +4,29 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Determine active section
+      const sections = ['home', 'about', 'products', 'features', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,19 +36,30 @@ const Header = () => {
   // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Toggle body class to prevent scrolling when menu is open
     document.body.classList.toggle('menu-open', !isMenuOpen);
   };
 
+  // Close mobile menu when clicking a link
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    document.body.classList.remove('menu-open');
+  };
+
   // Navigation links
-  const navLinks = ['Home', 'About', 'Products', 'Features', 'Contact'];
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'products', label: 'Products' },
+    { id: 'features', label: 'Features' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         {/* Logo */}
         <div className="logo-container">
-          <a href="/" className="logo-link">
+          <a href="#home" className="logo-link">
             <img 
               src="/logo.svg" 
               alt="ABC Tea Logo" 
@@ -46,12 +75,12 @@ const Header = () => {
         <nav className="nav-desktop">
           <ul className="nav-list">
             {navLinks.map((item) => (
-              <li key={item} className="nav-item">
+              <li key={item.id} className="nav-item">
                 <a 
-                  href={`#${item.toLowerCase()}`} 
-                  className="nav-link"
+                  href={`#${item.id}`} 
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -65,36 +94,43 @@ const Header = () => {
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation"
         >
-          {isMenuOpen ? (
-            <svg className="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          ) : (
-            <svg className="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          )}
+          <svg className="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {isMenuOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </>
+            )}
+          </svg>
         </button>
       </div>
 
       {/* Mobile Navigation */}
       <div className={`nav-mobile ${isMenuOpen ? 'open' : ''}`}>
+        <button 
+          className="mobile-close-btn"
+          onClick={closeMobileMenu}
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        
         <div className="mobile-nav-container">
           <ul className="mobile-nav-list">
             {navLinks.map((item) => (
-              <li key={item} className="mobile-nav-item">
+              <li key={item.id} className="mobile-nav-item">
                 <a 
-                  href={`#${item.toLowerCase()}`} 
-                  className="mobile-nav-link"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    document.body.classList.remove('menu-open');
-                  }}
+                  href={`#${item.id}`} 
+                  className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={closeMobileMenu}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -102,8 +138,8 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Gradient line */}
-      <div className="gradient-line"></div>
+      {/* Gradient accent line */}
+      <div className="gradient-accent"></div>
     </header>
   );
 };
