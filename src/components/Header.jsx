@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const mobileNavRef = useRef(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -33,13 +34,25 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && mobileNavRef.current && !mobileNavRef.current.contains(event.target)) {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
   // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     document.body.classList.toggle('menu-open', !isMenuOpen);
   };
 
-  // Close mobile menu when clicking a link
+  // Close mobile menu
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
     document.body.classList.remove('menu-open');
@@ -111,8 +124,11 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className={`nav-mobile ${isMenuOpen ? 'open' : ''}`}>
+      {/* Mobile Navigation Overlay */}
+      <div className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`} onClick={closeMobileMenu}></div>
+
+      {/* Mobile Navigation - Right Side Panel */}
+      <nav className={`nav-mobile ${isMenuOpen ? 'open' : ''}`} ref={mobileNavRef}>
         <button 
           className="mobile-close-btn"
           onClick={closeMobileMenu}
@@ -136,7 +152,7 @@ const Header = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </nav>
 
       {/* Gradient accent line */}
       <div className="gradient-accent"></div>
