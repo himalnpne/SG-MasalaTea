@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 
 const Hero = () => {
@@ -6,13 +6,13 @@ const Hero = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     try {
       // Import all images from the Products folder
       const imageContext = require.context('./Hero', false, /\.(png|jpe?g|svg|webp)$/);
-      
-      // Get all image imports
       const importedImages = imageContext.keys().map(imageContext);
       
       setProductImages(importedImages);
@@ -25,14 +25,29 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (productImages.length > 0) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (productImages.length > 0 && isIntersecting) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev === productImages.length - 1 ? 0 : prev + 1));
       }, 5000);
 
       return () => clearInterval(interval);
     }
-  }, [productImages.length]);
+  }, [productImages.length, isIntersecting]);
 
   const handleDotClick = (index) => {
     setCurrentSlide(index);
@@ -63,13 +78,13 @@ const Hero = () => {
   }
 
   return (
-    <section className="hero-section" id="home">
+    <section className="hero-section" id="home" ref={heroRef}>
       <div className="hero-bg-element"></div>
       
       <div className="hero-container">
         <div className="hero-content-wrapper">
           {/* Content Section */}
-          <div className="hero-text-content animate-fade-in">
+          <div className={`hero-text-content ${isIntersecting ? 'animate-fade-in' : ''}`}>
             <h1 className="hero-heading">
               <span>Authentic Nepalese</span>
               Spicy Masala Tea
@@ -85,13 +100,11 @@ const Hero = () => {
               Crafted with passion by XYZ Industries Pvt. Ltd.
             </div>
             
-            <button className="cta-button">
-              Shop Now
-            </button>
+
           </div>
           
           {/* Slider Section */}
-          <div className="slider-container animate-fade-in">
+          <div className={`slider-container ${isIntersecting ? 'animate-fade-in' : ''}`}>
             <div className="image-slider">
               <div className="decorative-blob blob-1"></div>
               <div className="decorative-blob blob-2"></div>
@@ -99,12 +112,12 @@ const Hero = () => {
               {productImages.map((img, index) => (
                 <div 
                   key={index} 
-                  className="slider-slide"
-                  style={{ opacity: index === currentSlide ? 1 : 0 }}
+                  className={`slider-slide ${index === currentSlide ? 'active' : ''}`}
                 >
                   <img 
-                    src={img.default || img} // Handle both ES modules and CJS
+                    src={img.default || img}
                     alt={`ABC Masala Tea Product ${index + 1}`}
+                    loading="lazy"
                   />
                   <div className="image-overlay"></div>
                 </div>

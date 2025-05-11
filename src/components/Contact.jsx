@@ -82,94 +82,96 @@ const Contact = () => {
   };
 
   return (
-    <main className="form-container">
-      <div className="form-header">
-        <h1>Connect With Us</h1>
-        <p>Got a question? Send us a message!</p>
-      </div>
-
-      {submitted ? (
-        <div className="submitted-state">
-          <div className="success-message">
-            <i className="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
-          </div>
-
-          {submittedData && (
-            <div className="submitted-data">
-              <h3>Your Submission</h3>
-              <div className="submitted-data-item">
-                <strong>Name:</strong> <span>{submittedData.name}</span>
-              </div>
-              <div className="submitted-data-item">
-                <strong>Email:</strong> <span>{submittedData.email}</span>
-              </div>
-              <div className="submitted-data-item">
-                <strong>Phone:</strong> <span>{submittedData.phone}</span>
-              </div>
-              <div className="submitted-data-item">
-                <strong>Message:</strong> <span>{submittedData.message}</span>
-              </div>
-              <button className="new-response-btn" onClick={handleNewResponse}>
-                Submit Another Response
-              </button>
-            </div>
-          )}
+    <main className="form-container" id="contact">
+      <div className="contact-content-wrapper">
+        <div className="form-header">
+          <h1>Connect With Us</h1>
+          <p>Got a question? Send us a message!</p>
         </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name" className="required">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              className="form-control"
-              value={form.name}
-              onChange={handleChange}
-            />
-            {errors.name && <div className="error-message">{errors.name}</div>}
+
+        {submitted ? (
+          <div className="submitted-state">
+            <div className="success-message">
+              <i className="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+            </div>
+
+            {submittedData && (
+              <div className="submitted-data">
+                <h3>Your Submission</h3>
+                <div className="submitted-data-item">
+                  <strong>Name:</strong> <span>{submittedData.name}</span>
+                </div>
+                <div className="submitted-data-item">
+                  <strong>Email:</strong> <span>{submittedData.email}</span>
+                </div>
+                <div className="submitted-data-item">
+                  <strong>Phone:</strong> <span>{submittedData.phone}</span>
+                </div>
+                <div className="submitted-data-item">
+                  <strong>Message:</strong> <span>{submittedData.message}</span>
+                </div>
+                <button className="new-response-btn" onClick={handleNewResponse}>
+                  Submit Another Response
+                </button>
+              </div>
+            )}
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <label htmlFor="name" className="required">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                className="form-control"
+                value={form.name}
+                onChange={handleChange}
+              />
+              {errors.name && <div className="error-message">{errors.name}</div>}
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email" className="required">Email</label>
-            <input
-              type="email"
-              id="email"
-              className="form-control"
-              value={form.email}
-              onChange={handleChange}
-            />
-            {errors.email && <div className="error-message">{errors.email}</div>}
-          </div>
+            <div className="form-group">
+              <label htmlFor="email" className="required">Email</label>
+              <input
+                type="email"
+                id="email"
+                className="form-control"
+                value={form.email}
+                onChange={handleChange}
+              />
+              {errors.email && <div className="error-message">{errors.email}</div>}
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="phone" className="required">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              className="form-control"
-              value={form.phone}
-              onChange={handleChange}
-            />
-            {errors.phone && <div className="error-message">{errors.phone}</div>}
-          </div>
+            <div className="form-group">
+              <label htmlFor="phone" className="required">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                className="form-control"
+                value={form.phone}
+                onChange={handleChange}
+              />
+              {errors.phone && <div className="error-message">{errors.phone}</div>}
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="message" className="required">Your Message</label>
-            <textarea
-              id="message"
-              className="form-control"
-              value={form.message}
-              onChange={handleChange}
-            ></textarea>
-            {errors.message && <div className="error-message">{errors.message}</div>}
-          </div>
+            <div className="form-group">
+              <label htmlFor="message" className="required">Your Message</label>
+              <textarea
+                id="message"
+                className="form-control"
+                value={form.message}
+                onChange={handleChange}
+              ></textarea>
+              {errors.message && <div className="error-message">{errors.message}</div>}
+            </div>
 
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
-      )}
+            <button type="submit" className="submit-btn">Send Message</button>
+          </form>
+        )}
 
-      <div className="privacy-note">
-        By submitting, you agree to our <a href="#" target="_blank">Privacy Policy</a>.
+        <div className="privacy-note">
+          By submitting, you agree to our <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+        </div>
       </div>
     </main>
   );

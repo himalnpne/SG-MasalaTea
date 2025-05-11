@@ -4,34 +4,51 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('home');
   const mobileNavRef = useRef(null);
   const menuToggleRef = useRef(null);
+
+  // Section configuration - ensure these match your component IDs exactly
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'features', label: 'Features' },
+    { id: 'testimonials', label: 'Testimonials' },
+    { id: 'contact', label: 'Contact' } // Make sure this matches Contact component's ID
+  ];
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Determine active section
-      const sections = ['hero', 'about', 'AboutProduct', 'Testimonials', 'Contact'];
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
+      // Get all sections that exist in the DOM
+      const visibleSections = sections.map(section => {
+        const element = document.getElementById(section.id);
+        return element ? {
+          id: section.id,
+          element,
+          top: element.offsetTop,
+          bottom: element.offsetTop + element.offsetHeight
+        } : null;
+      }).filter(Boolean);
+
+      const scrollPosition = window.scrollY + 100; // Adjusted for header height
+
+      // Find which section is currently in view
+      const currentSection = visibleSections.find(section => 
+        scrollPosition >= section.top && scrollPosition < section.bottom
+      );
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Set initial active section
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -61,33 +78,46 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     document.body.classList.toggle('menu-open', !isMenuOpen);
   };
 
-  // Close mobile menu
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
     document.body.classList.remove('menu-open');
   };
 
-  // Navigation links
-  const navLinks = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'AboutProduct', label: 'Why Us' },
-    { id: 'Testimonials', label: 'Testimonials' },
-    { id: 'Contact', label: 'Contact' }
-  ];
+  // Improved scroll to section function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+      const targetPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Update active section immediately
+      setActiveSection(sectionId);
+    }
+  };
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         {/* Logo */}
         <div className="logo-container">
-          <a href="#hero" className="logo-link">
+          <a 
+            href="#home" 
+            className="logo-link"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('home');
+            }}
+          >
             <img 
               src={process.env.PUBLIC_URL + "/logo.svg"} 
               alt="ABC Tea Logo" 
@@ -102,13 +132,17 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="nav-desktop">
           <ul className="nav-list">
-            {navLinks.map((item) => (
-              <li key={item.id} className="nav-item">
+            {sections.map((section) => (
+              <li key={section.id} className="nav-item">
                 <a 
-                  href={`#${item.id}`} 
-                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  href={`#${section.id}`}
+                  className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(section.id);
+                  }}
                 >
-                  {item.label}
+                  {section.label}
                 </a>
               </li>
             ))}
@@ -154,14 +188,18 @@ const Header = () => {
       >
         <div className="mobile-nav-content">
           <ul className="mobile-nav-list">
-            {navLinks.map((item) => (
-              <li key={item.id} className="mobile-nav-item">
+            {sections.map((section) => (
+              <li key={section.id} className="mobile-nav-item">
                 <a 
-                  href={`#${item.id}`} 
-                  className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
-                  onClick={closeMobileMenu}
+                  href={`#${section.id}`}
+                  className={`mobile-nav-link ${activeSection === section.id ? 'active' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(section.id);
+                    closeMobileMenu();
+                  }}
                 >
-                  {item.label}
+                  {section.label}
                 </a>
               </li>
             ))}

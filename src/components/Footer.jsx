@@ -3,20 +3,11 @@ import './Footer.css';
 import { 
   FaFacebook, 
   FaInstagram, 
-  FaTwitter, 
   FaTiktok, 
-  FaYoutube, 
-  FaLinkedin,
-  FaPinterest,
+  FaYoutube,
   FaEnvelope,
   FaPhone,
-  FaMapMarkerAlt,
-  FaHome,
-  FaInfoCircle,
-  FaLeaf,
-  FaComments,
-  FaPaperPlane,
-  FaHeart
+  FaMapMarkerAlt
 } from 'react-icons/fa';
 
 const Footer = () => {
@@ -29,7 +20,8 @@ const Footer = () => {
       
       <div className="container">
         <div className="footer-content">
-          <div className="footer-logo-section">
+          {/* Column 1: Company Info */}
+          <div className="footer-company-section">
             <div className="footer-logo">
               <h3 className="footer-logo-text">
                 <span className="footer-logo-spicy">Spicy</span>
@@ -37,11 +29,17 @@ const Footer = () => {
                 <span className="footer-logo-tea">Tea</span>
               </h3>
             </div>
-            <p>
+            <p className="footer-company-description">
               Authentic Nepalese Masala Tea crafted with premium Himalayan herbs and spices. 
               Our traditional recipe has been passed down through generations, bringing the 
               rich flavors of Nepal to your cup.
             </p>
+          </div>
+          
+          {/* Column 2: Follow Us */}
+          <div className="footer-follow-section">
+            <h4 className="footer-heading">Follow Us</h4>
+            <p className="footer-social-text">Share your Stories</p>
             <div className="social-icons">
               <a 
                 href="https://www.facebook.com/himalnpne" 
@@ -62,15 +60,6 @@ const Footer = () => {
                 <FaInstagram />
               </a>
               <a 
-                href="https://www.twitter.com/himalnpne" 
-                className="social-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a 
                 href="https://www.tiktok.com/@himalnpne" 
                 className="social-icon"
                 target="_blank"
@@ -88,48 +77,10 @@ const Footer = () => {
               >
                 <FaYoutube />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/himalnpne" 
-                className="social-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-              <a 
-                href="https://www.pinterest.com/himalnpne" 
-                className="social-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Pinterest"
-              >
-                <FaPinterest />
-              </a>
             </div>
           </div>
           
-          <div className="footer-links-section">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#home"><FaHome /> Home</a>
-              </li>
-              <li>
-                <a href="#about"><FaInfoCircle /> About</a>
-              </li>
-              <li>
-                <a href="#features"><FaLeaf /> Features</a>
-              </li>
-              <li>
-                <a href="#testimonials"><FaComments /> Testimonials</a>
-              </li>
-              <li>
-                <a href="#contact"><FaPaperPlane /> Contact</a>
-              </li>
-            </ul>
-          </div>
-          
+          {/* Column 3: Contact Us */}
           <div className="footer-contact-section">
             <h4 className="footer-heading">Contact Us</h4>
             <ul className="contact-info">

@@ -1,4 +1,4 @@
-/* Footer.css - Modern redesign to match Hero.css and AboutProduct.css */
+/* Footer.css - Modern redesign with lighter background colors */
 
 /* Using the same variables as the other components */
 :root {
@@ -7,11 +7,10 @@
   --primary-light: #fbbf24; /* amber-400 */
   --primary-lightest: #fef3c7; /* amber-50 */
   --text-dark: #78350f; /* amber-900 */
-  --text-light: #d4d4d8; /* zinc-300 */
-  --text-muted: #71717a; /* zinc-500 */
+  --text-light: #1f2937; /* gray-800 for better contrast on light bg */
+  --text-muted: #4b5563; /* gray-600 */
   --background-light: #fafaf9; /* stone-50 */
-  --background-dark: #292524; /* stone-800 */
-  --background-darker: #1c1917; /* stone-900 */
+  --background-lighter: #fff7ed; /* orange-50 */
   --shadow-color: rgba(217, 119, 6, 0.2); /* amber-600 with opacity */
   --transition-default: all 0.3s ease;
 }
@@ -19,8 +18,8 @@
 /* Base Footer Styling */
 .footer {
   position: relative;
-  background-color: var(--background-dark);
-  color: var(--text-light);
+  background-color: var(--background-lighter);
+  color: var(--text-dark);
   padding: 5rem 1rem 2rem;
   overflow: hidden;
 }
@@ -40,8 +39,8 @@
   left: -5%;
   width: 110%;
   height: 10rem;
-  background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
-  opacity: 0.05;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-lightest));
+  opacity: 0.3;
   transform: skewY(-3deg);
   z-index: 1;
 }
@@ -58,7 +57,7 @@
   right: 5%;
   width: 10rem;
   height: 10rem;
-  background-color: rgba(217, 119, 6, 0.05);
+  background-color: rgba(217, 119, 6, 0.1);
 }
 
 .footer-blob-2 {
@@ -66,7 +65,7 @@
   left: 5%;
   width: 15rem;
   height: 15rem;
-  background-color: rgba(217, 119, 6, 0.03);
+  background-color: rgba(217, 119, 6, 0.08);
 }
 
 /* Footer Content */
@@ -89,8 +88,8 @@
   }
 }
 
-/* Footer Logo Section */
-.footer-logo-section {
+/* Footer Company Section */
+.footer-company-section {
   animation: fadeIn 0.8s ease forwards;
 }
 
@@ -106,7 +105,7 @@
 }
 
 .footer-logo-spicy {
-  color: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 .footer-logo-masala {
@@ -114,18 +113,18 @@
 }
 
 .footer-logo-tea {
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
-.footer-logo-section p {
+.footer-company-description {
   line-height: 1.7;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   max-width: 400px;
 }
 
-/* Footer Links Section */
-.footer-links-section {
+/* Footer Follow Section */
+.footer-follow-section {
   animation: fadeIn 0.8s ease 0.2s forwards;
   opacity: 0;
 }
@@ -133,7 +132,7 @@
 .footer-heading {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary-light);
+  color: var(--primary-dark);
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 0.75rem;
@@ -149,31 +148,36 @@
   background-color: var(--primary-color);
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 0.75rem;
-}
-
-.footer-links a {
+.footer-social-text {
   color: var(--text-muted);
-  text-decoration: none;
-  transition: var(--transition-default);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: rgba(217, 119, 6, 0.1);
+  color: var(--primary-dark);
+  font-size: 1.125rem;
+  transition: var(--transition-default);
 }
 
-.footer-links a:hover {
-  color: var(--primary-light);
-  transform: translateX(3px);
-}
-
-.footer-links a svg {
-  margin-right: 0.5rem;
-  font-size: 1rem;
+.social-icon:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
 }
 
 /* Footer Contact Section */
@@ -212,39 +216,13 @@
 }
 
 .contact-info a:hover {
-  color: var(--primary-light);
-}
-
-/* Social Icons */
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  font-size: 1.125rem;
-  transition: var(--transition-default);
-}
-
-.social-icon:hover {
-  background-color: var(--primary-color);
-  color: white;
-  transform: translateY(-3px);
+  color: var(--primary-dark);
 }
 
 /* Footer Bottom */
 .footer-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
   margin-bottom: 2rem;
 }
 
@@ -278,18 +256,13 @@
 }
 
 .footer-developer a {
-  color: var(--primary-light);
+  color: var(--primary-dark);
   text-decoration: none;
   transition: var(--transition-default);
 }
 
 .footer-developer a:hover {
   color: var(--primary-color);
-}
-
-.footer-heart {
-  color: #ef4444;
-  animation: heartbeat 1.5s infinite;
 }
 
 /* Animations */
@@ -302,9 +275,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
 }
