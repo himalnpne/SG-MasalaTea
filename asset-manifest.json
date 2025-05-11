@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/himalnpne/SG-MasalaTea/static/css/main.e0d3c4ab.css",
-    "main.js": "/himalnpne/SG-MasalaTea/static/js/main.42a46615.js",
-    "static/js/453.ea73ba6c.chunk.js": "/himalnpne/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js",
-    "static/media/job-savelsberg-TQUHeY2YtDc-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/job-savelsberg-TQUHeY2YtDc-unsplash.085ecef192963217e453.jpg",
-    "static/media/y-s-_4hh-TS8Y5A-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/y-s-_4hh-TS8Y5A-unsplash.08385d21f77a5839ee3f.jpg",
-    "static/media/waranont-joe-28xwxxPmV7Y-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/waranont-joe-28xwxxPmV7Y-unsplash.1dad4b10c6b5fd54eb16.jpg",
-    "static/media/jason-leung-gFbGcqtu5Gc-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/jason-leung-gFbGcqtu5Gc-unsplash.88b2e802f555362f0c60.jpg",
-    "static/media/aniketh-kanukurthi-Qaor6nxikUM-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/aniketh-kanukurthi-Qaor6nxikUM-unsplash.c449a4016044e9e0047c.jpg",
-    "static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.fc9c827518c0e2fcfa44.jpg",
-    "static/media/harsh-pandey-dXGl11H1Kbg-unsplash.jpg": "/himalnpne/SG-MasalaTea/static/media/harsh-pandey-dXGl11H1Kbg-unsplash.b2d1a314dc3295a3ab10.jpg",
-    "index.html": "/himalnpne/SG-MasalaTea/index.html",
-    "main.e0d3c4ab.css.map": "/himalnpne/SG-MasalaTea/static/css/main.e0d3c4ab.css.map",
-    "main.42a46615.js.map": "/himalnpne/SG-MasalaTea/static/js/main.42a46615.js.map",
-    "453.ea73ba6c.chunk.js.map": "/himalnpne/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js.map"
+    "main.css": "/SG-MasalaTea/static/css/main.e0d3c4ab.css",
+    "main.js": "/SG-MasalaTea/static/js/main.e18d79e9.js",
+    "static/js/453.ea73ba6c.chunk.js": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js",
+    "static/media/job-savelsberg-TQUHeY2YtDc-unsplash.jpg": "/SG-MasalaTea/static/media/job-savelsberg-TQUHeY2YtDc-unsplash.085ecef192963217e453.jpg",
+    "static/media/y-s-_4hh-TS8Y5A-unsplash.jpg": "/SG-MasalaTea/static/media/y-s-_4hh-TS8Y5A-unsplash.08385d21f77a5839ee3f.jpg",
+    "static/media/waranont-joe-28xwxxPmV7Y-unsplash.jpg": "/SG-MasalaTea/static/media/waranont-joe-28xwxxPmV7Y-unsplash.1dad4b10c6b5fd54eb16.jpg",
+    "static/media/jason-leung-gFbGcqtu5Gc-unsplash.jpg": "/SG-MasalaTea/static/media/jason-leung-gFbGcqtu5Gc-unsplash.88b2e802f555362f0c60.jpg",
+    "static/media/aniketh-kanukurthi-Qaor6nxikUM-unsplash.jpg": "/SG-MasalaTea/static/media/aniketh-kanukurthi-Qaor6nxikUM-unsplash.c449a4016044e9e0047c.jpg",
+    "static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.jpg": "/SG-MasalaTea/static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.fc9c827518c0e2fcfa44.jpg",
+    "static/media/harsh-pandey-dXGl11H1Kbg-unsplash.jpg": "/SG-MasalaTea/static/media/harsh-pandey-dXGl11H1Kbg-unsplash.b2d1a314dc3295a3ab10.jpg",
+    "index.html": "/SG-MasalaTea/index.html",
+    "main.e0d3c4ab.css.map": "/SG-MasalaTea/static/css/main.e0d3c4ab.css.map",
+    "main.e18d79e9.js.map": "/SG-MasalaTea/static/js/main.e18d79e9.js.map",
+    "453.ea73ba6c.chunk.js.map": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0d3c4ab.css",
-    "static/js/main.42a46615.js"
+    "static/js/main.e18d79e9.js"
   ]
 }
