@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/SG-MasalaTea/static/css/main.e0d3c4ab.css",
-    "main.js": "/SG-MasalaTea/static/js/main.5b260009.js",
+    "main.css": "/SG-MasalaTea/static/css/main.2a08d498.css",
+    "main.js": "/SG-MasalaTea/static/js/main.c4dc0642.js",
     "static/js/453.ea73ba6c.chunk.js": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js",
     "static/media/job-savelsberg-TQUHeY2YtDc-unsplash.jpg": "/SG-MasalaTea/static/media/job-savelsberg-TQUHeY2YtDc-unsplash.085ecef192963217e453.jpg",
     "static/media/y-s-_4hh-TS8Y5A-unsplash.jpg": "/SG-MasalaTea/static/media/y-s-_4hh-TS8Y5A-unsplash.08385d21f77a5839ee3f.jpg",
@@ -11,12 +11,12 @@
     "static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.jpg": "/SG-MasalaTea/static/media/mohamadreza-azhdari-rnsvKS2lJhk-unsplash.fc9c827518c0e2fcfa44.jpg",
     "static/media/harsh-pandey-dXGl11H1Kbg-unsplash.jpg": "/SG-MasalaTea/static/media/harsh-pandey-dXGl11H1Kbg-unsplash.b2d1a314dc3295a3ab10.jpg",
     "index.html": "/SG-MasalaTea/index.html",
-    "main.e0d3c4ab.css.map": "/SG-MasalaTea/static/css/main.e0d3c4ab.css.map",
-    "main.5b260009.js.map": "/SG-MasalaTea/static/js/main.5b260009.js.map",
+    "main.2a08d498.css.map": "/SG-MasalaTea/static/css/main.2a08d498.css.map",
+    "main.c4dc0642.js.map": "/SG-MasalaTea/static/js/main.c4dc0642.js.map",
     "453.ea73ba6c.chunk.js.map": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0d3c4ab.css",
-    "static/js/main.5b260009.js"
+    "static/css/main.2a08d498.css",
+    "static/js/main.c4dc0642.js"
   ]
 }
