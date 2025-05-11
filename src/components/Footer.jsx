@@ -1,43 +1,191 @@
 import React from 'react';
 import './Footer.css';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { 
+  FaFacebook, 
+  FaInstagram, 
+  FaTwitter, 
+  FaTiktok, 
+  FaYoutube, 
+  FaLinkedin,
+  FaPinterest,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaHome,
+  FaInfoCircle,
+  FaLeaf,
+  FaComments,
+  FaPaperPlane,
+  FaHeart
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer className="footer">
+      {/* Decorative Elements */}
+      <div className="footer-bg-element"></div>
+      <div className="footer-decorative-blob footer-blob-1"></div>
+      <div className="footer-decorative-blob footer-blob-2"></div>
+      
       <div className="container">
         <div className="footer-content">
-          <div className="footer-logo">
-            <h3>
-              <span style={{ color: 'var(--dark-brown)' }}>Spicy</span>
-              <span style={{ color: 'var(--accent-orange)' }}>Masala</span>
-              <span style={{ color: 'var(--dark-green)' }}>Tea</span>
-            </h3>
-            <p>Authentic Nepalese Masala Tea crafted with Himalayan herbs and spices.</p>
-          </div>
-          <div className="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div className="footer-contact">
-            <h4>Contact Us</h4>
-            <p>info@spicymasalatea.com</p>
-            <p>+977 1234567890</p>
+          <div className="footer-logo-section">
+            <div className="footer-logo">
+              <h3 className="footer-logo-text">
+                <span className="footer-logo-spicy">Spicy</span>
+                <span className="footer-logo-masala">Masala</span>
+                <span className="footer-logo-tea">Tea</span>
+              </h3>
+            </div>
+            <p>
+              Authentic Nepalese Masala Tea crafted with premium Himalayan herbs and spices. 
+              Our traditional recipe has been passed down through generations, bringing the 
+              rich flavors of Nepal to your cup.
+            </p>
             <div className="social-icons">
-              <a href="#"><FaFacebook /></a>
-              <a href="#"><FaInstagram /></a>
-              <a href="#"><FaTwitter /></a>
+              <a 
+                href="https://www.facebook.com/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook />
+              </a>
+              <a 
+                href="https://www.instagram.com/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a 
+                href="https://www.twitter.com/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaTwitter />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <FaTiktok />
+              </a>
+              <a 
+                href="https://www.youtube.com/c/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin />
+              </a>
+              <a 
+                href="https://www.pinterest.com/himalnpne" 
+                className="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pinterest"
+              >
+                <FaPinterest />
+              </a>
             </div>
           </div>
+          
+          <div className="footer-links-section">
+            <h4 className="footer-heading">Quick Links</h4>
+            <ul className="footer-links">
+              <li>
+                <a href="#home"><FaHome /> Home</a>
+              </li>
+              <li>
+                <a href="#about"><FaInfoCircle /> About</a>
+              </li>
+              <li>
+                <a href="#features"><FaLeaf /> Features</a>
+              </li>
+              <li>
+                <a href="#testimonials"><FaComments /> Testimonials</a>
+              </li>
+              <li>
+                <a href="#contact"><FaPaperPlane /> Contact</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="footer-contact-section">
+            <h4 className="footer-heading">Contact Us</h4>
+            <ul className="contact-info">
+              <li>
+                <span className="contact-info-icon">
+                  <FaEnvelope />
+                </span>
+                <span className="contact-info-text">
+                  <a href="mailto:info@spicymasalatea.com">
+                    info@spicymasalatea.com
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span className="contact-info-icon">
+                  <FaPhone />
+                </span>
+                <span className="contact-info-text">
+                  <a href="tel:+9771234567890">
+                    +977 1234567890
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span className="contact-info-icon">
+                  <FaMapMarkerAlt />
+                </span>
+                <span className="contact-info-text">
+                  Kathmandu, Nepal
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
+        
+        <div className="footer-divider"></div>
+        
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Spicy Masala Tea. All rights reserved.</p>
+          <div className="footer-copyright">
+            &copy; {new Date().getFullYear()} Spicy Masala Tea. All rights reserved.
+          </div>
+          <div className="footer-developer">
+            Developed by 
+            <a 
+              href="https://neupanehimal.com.np" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Himal Neupane
+            </a> | 
+            <a 
+              href="mailto:info@neupanehimal.com.np"
+            >
+              info@neupanehimal.com.np
+            </a>
+          </div>
         </div>
       </div>
     </footer>

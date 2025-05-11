@@ -29,7 +29,6 @@ const AboutProduct = () => {
       const interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev === aboutImages.length - 1 ? 0 : prev + 1));
       }, 5000);
-
       return () => clearInterval(interval);
     }
   }, [aboutImages.length]);
@@ -56,32 +55,55 @@ const AboutProduct = () => {
 
   return (
     <section className="about-product" id="about">
+      {/* Decorative Elements */}
+      <div className="about-bg-element"></div>
+      <div className="about-decorative-blob about-blob-1"></div>
+      <div className="about-decorative-blob about-blob-2"></div>
+      
       <div className="container">
         <div className="about-image">
           {aboutImages.length > 0 ? (
-            <img 
-              src={aboutImages[currentImageIndex].default || aboutImages[currentImageIndex]} 
-              alt="About ABC Masala Tea" 
-            />
+            <div className="about-image-slider">
+              <div 
+                className="about-slide" 
+                style={{ opacity: 1 }}
+              >
+                <img
+                  src={aboutImages[currentImageIndex].default || aboutImages[currentImageIndex]}
+                  alt="Spicy Masala Tea"
+                />
+                <div className="about-image-overlay"></div>
+              </div>
+            </div>
           ) : (
             <div className="no-image">No images available</div>
           )}
         </div>
+        
         <div className="about-content">
           <h2>About Our <span>Spicy Masala Tea</span></h2>
-          <p>Our Spicy Masala Tea is a traditional Nepalese blend made from the finest organic tea leaves harvested from the Himalayan foothills, combined with a secret mix of aromatic spices.</p>
+          <p>
+            Our Spicy Masala Tea is a traditional Nepalese blend made from the finest organic 
+            tea leaves harvested from the Himalayan foothills, combined with a secret mix of 
+            aromatic spices that creates an unforgettable sensory experience.
+          </p>
+          
           <ul className="features-list">
-            <li>
+            <li className="feature-item">
               <h3>100% Organic</h3>
-              <p>Grown without synthetic pesticides or fertilizers</p>
+              <p>Grown without synthetic pesticides or fertilizers in the pristine environment of the Himalayas</p>
             </li>
-            <li>
+            <li className="feature-item">
               <h3>Handpicked</h3>
-              <p>Carefully selected by experienced tea farmers</p>
+              <p>Carefully selected by experienced tea farmers ensuring only the finest quality leaves</p>
             </li>
-            <li>
+            <li className="feature-item">
               <h3>Traditional Recipe</h3>
-              <p>Authentic Nepalese masala blend passed down through generations</p>
+              <p>Authentic Nepalese masala blend passed down through generations of tea artisans</p>
+            </li>
+            <li className="feature-item">
+              <h3>Rich Flavor Profile</h3>
+              <p>Perfect balance of spices, offering a bold taste with warming aromatic notes</p>
             </li>
           </ul>
         </div>

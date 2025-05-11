@@ -6,6 +6,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const mobileNavRef = useRef(null);
+  const menuToggleRef = useRef(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -34,16 +35,30 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when clicking outside
+  // Close menu when clicking outside or pressing Escape
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMenuOpen && mobileNavRef.current && !mobileNavRef.current.contains(event.target)) {
+      if (isMenuOpen && 
+          mobileNavRef.current && 
+          !mobileNavRef.current.contains(event.target) &&
+          !menuToggleRef.current.contains(event.target)) {
+        closeMobileMenu();
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
         closeMobileMenu();
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [isMenuOpen]);
 
   // Toggle mobile menu
@@ -74,7 +89,7 @@ const Header = () => {
         <div className="logo-container">
           <a href="#home" className="logo-link">
             <img 
-              src="/logo.svg" 
+              src={process.env.PUBLIC_URL + "/logo.svg"} 
               alt="ABC Tea Logo" 
               className="logo-image"
             />
@@ -102,6 +117,7 @@ const Header = () => {
 
         {/* Mobile Menu Toggle Button */}
         <button 
+          ref={menuToggleRef}
           className="menu-toggle"
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
@@ -125,19 +141,18 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation Overlay */}
-      <div className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`} onClick={closeMobileMenu}></div>
+      <div 
+        className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`} 
+        onClick={closeMobileMenu}
+      />
 
-      {/* Mobile Navigation - Right Side Panel */}
-      <nav className={`nav-mobile ${isMenuOpen ? 'open' : ''}`} ref={mobileNavRef}>
-        <button 
-          className="mobile-close-btn"
-          onClick={closeMobileMenu}
-          aria-label="Close menu"
-        >
-          &times;
-        </button>
-        
-        <div className="mobile-nav-container">
+      {/* Mobile Navigation - Side Panel */}
+      <nav 
+        className={`nav-mobile ${isMenuOpen ? 'open' : ''}`} 
+        ref={mobileNavRef}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="mobile-nav-content">
           <ul className="mobile-nav-list">
             {navLinks.map((item) => (
               <li key={item.id} className="mobile-nav-item">
