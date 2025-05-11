@@ -4,7 +4,7 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('hero');
   const mobileNavRef = useRef(null);
   const menuToggleRef = useRef(null);
 
@@ -14,7 +14,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 10);
       
       // Determine active section
-      const sections = ['home', 'about', 'products', 'features', 'contact'];
+      const sections = ['hero', 'about', 'AboutProduct', 'Testimonials', 'Contact'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -75,11 +75,11 @@ const Header = () => {
 
   // Navigation links
   const navLinks = [
-    { id: 'home', label: 'Home' },
+    { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'products', label: 'Products' },
-    { id: 'features', label: 'Features' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'AboutProduct', label: 'Why Us' },
+    { id: 'Testimonials', label: 'Testimonials' },
+    { id: 'Contact', label: 'Contact' }
   ];
 
   return (
@@ -87,7 +87,7 @@ const Header = () => {
       <div className="header-container">
         {/* Logo */}
         <div className="logo-container">
-          <a href="#home" className="logo-link">
+          <a href="#hero" className="logo-link">
             <img 
               src={process.env.PUBLIC_URL + "/logo.svg"} 
               alt="ABC Tea Logo" 

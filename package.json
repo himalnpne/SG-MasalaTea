@@ -1,8 +1,7 @@
 {
   "name": "masala-tea-website",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://himalnpne.github.io/SGMT",
+  "homepage": "https://github.com/himalnpne/SG-MasalaTea",
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
