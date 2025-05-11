@@ -11,7 +11,8 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <BrowserRouter basename="/SGMT">
+    <BrowserRouter basename="/SG-MasalaTea">
+
       <div className="App">
         <Header />
         <main>
