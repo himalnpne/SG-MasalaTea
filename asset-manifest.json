@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SG-MasalaTea/static/css/main.2a08d498.css",
-    "main.js": "/SG-MasalaTea/static/js/main.32a09865.js",
+    "main.js": "/SG-MasalaTea/static/js/main.2a1ef7ce.js",
     "static/js/453.ea73ba6c.chunk.js": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js",
     "static/media/2148555190.jpg": "/SG-MasalaTea/static/media/2148555190.3880dca209a52f95a1dc.jpg",
     "static/media/saga-areng-wE_fqrG_Idw-unsplash.jpg": "/SG-MasalaTea/static/media/saga-areng-wE_fqrG_Idw-unsplash.296e7131f86658414316.jpg",
@@ -13,11 +13,11 @@
     "static/media/kamal-preet-kaur-hT_xR7_1YH8-unsplash.jpg": "/SG-MasalaTea/static/media/kamal-preet-kaur-hT_xR7_1YH8-unsplash.7f223bd5b66cc4ae0717.jpg",
     "index.html": "/SG-MasalaTea/index.html",
     "main.2a08d498.css.map": "/SG-MasalaTea/static/css/main.2a08d498.css.map",
-    "main.32a09865.js.map": "/SG-MasalaTea/static/js/main.32a09865.js.map",
+    "main.2a1ef7ce.js.map": "/SG-MasalaTea/static/js/main.2a1ef7ce.js.map",
     "453.ea73ba6c.chunk.js.map": "/SG-MasalaTea/static/js/453.ea73ba6c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a08d498.css",
-    "static/js/main.32a09865.js"
+    "static/js/main.2a1ef7ce.js"
   ]
 }
